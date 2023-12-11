@@ -6,17 +6,19 @@ const UtilsHelpers = require('./../../helpers/utils');
 
 
 
-router.get('/',  (req, res, next) => {
-    let statusFilter = UtilsHelpers.createFilterStatus();
-    
-    ItemsModel.find({ }).then( (items ) => {
+router.get('(/:status)?',  (req, res, next) => {
+    let objWhere = {}
+    let currentStatus = req.params.status
+    let statusFilter = UtilsHelpers.createFilterStatus(currentStatus);
+
+    if(currentStatus !== 'all') objWhere = {status: currentStatus}
+    ItemsModel.find(objWhere).then( (items ) => {
         res.render('pages/items/list', { 
             pageTitle: 'Items',
             items: items,
             statusFilter: statusFilter
         });
     });
-
 });
 
 router.get('/add', (req, res, next) => {

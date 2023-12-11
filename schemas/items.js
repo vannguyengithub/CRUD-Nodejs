@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const schema = new Schema({ 
     name: String, 
     status: String,
-    ordering: String,      
+    ordering: Number,      
 });
 
 module.exports = mongoose.model('items', schema);
