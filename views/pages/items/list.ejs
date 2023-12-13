@@ -1,7 +1,7 @@
 <!-- <h4>
     <%= JSON.stringify(items) %>
 </h4> -->
-<div class="alert alert-success" role="alert">
+<div class="alert alert-success hidden" role="alert">
     <span class="close-btn">&times;</span>
     Thay đổi Status thành công
 </div>
@@ -11,7 +11,7 @@
         <div class="panel panel-info">
             <div class="panel-heading">
                 Search & Filter
-                <a href="admin123/item">
+                <a href="<%= systemConfig.prefixAdmin %>/items/all">
                     <span id="icon-reload" class="glyphicon glyphicon-refresh"></span>
                 </a>
             </div>
@@ -24,18 +24,27 @@
                         <% filterStatusHelper(statusFilter) %>
                     </div>
                     <div class="col-sm-6">
-                        <form action="admin123/item/all" method="GET">
+                        <form action="<%= systemConfig.prefixAdmin %>/items/<%= currentStatus %>" method="GET">
                             <div class="input-group">
-                                <input type="text" class="form-control" name="search" placeholder="Search for..."
-                                    value="">
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    name="keyword" 
+                                    placeholder="Search for..."
+                                    value="<%= keyword %>"
+                                >
                                 <input type="hidden" value="all">
 
                                 <span class="input-group-btn">
                                     <button class="btn btn-info" type="submit">Search</button>
                                 </span>
                                 <span class="input-group-btn">
-                                    <button class="btn btn-success" type="button"><a
-                                            href="admin123/group/all">Clear</a></button>
+                                    <a 
+                                        href="<%= systemConfig.prefixAdmin %>/items/<%= currentStatus %>" 
+                                        class="btn btn-success"
+                                    >
+                                        Clear
+                                    </a>
                                 </span>
                             </div>
                         </form>
@@ -75,7 +84,8 @@
                         <button class="btn btn-info btnAction" type="button" id="btn-action" value="btnAction"
                             disabled>Apply</button>
                         <div class="pull-right">
-                            <a href="<%= systemConfig.prefixAdmin %>/items/add" class="btn btn-warning btn-addNew">Add New
+                            <a href="<%= systemConfig.prefixAdmin %>/items/add" class="btn btn-warning btn-addNew">
+                                Add New
                             </a>
                         </div>
                     </div>
