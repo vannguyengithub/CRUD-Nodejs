@@ -21,7 +21,10 @@ router.get('(/:status)?',  (req, res, next) => {
         objWhere = {status: currentStatus, name: new RegExp(keyword, 'i') };
     }
 
-    ItemsModel.find(objWhere).then( (items ) => {
+    ItemsModel
+        .find(objWhere)
+        .sort({ordering: 'asc'})
+        .then( (items ) => {
         res.render('pages/items/list', { 
             pageTitle: 'Items',
             items: items,
