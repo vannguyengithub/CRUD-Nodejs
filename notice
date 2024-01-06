@@ -1,2 +1,7 @@
 lỗi thống kê status
 E:\project-nodejs\helpers\utils.js
+
+
+
+totalItemPerPage : số trang hiện tại
+currentPage: page hiện tại

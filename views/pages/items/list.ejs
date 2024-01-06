@@ -152,7 +152,6 @@
 
     <div class="col-lg-12">
         <% include ./../../helpers/pagination %>
-        <%- paginationHelper() %>
-        
+        <%- paginationHelper(pagination, 'items', currentStatus, keyword) %>
     </div>
 </div>
