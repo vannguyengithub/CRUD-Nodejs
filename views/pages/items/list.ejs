@@ -119,7 +119,7 @@
                                         <%= item.name %>
                                     </td>
                                     <td>
-                                        <%- statusHelper(item.status, "#") %>
+                                        <%- statusHelper('items', item.status, item.id) %>
                                     </td>
                                     <td>
                                         <input type="number" value="<%= item.ordering%>" class="text-center ordering">
@@ -132,13 +132,9 @@
                                         >
                                             Edit
                                         </a>
-                                        <a 
-													 	href="#" 
-														type="button"
-                                          class="btn btn-danger btn-sm btn-delete"
-													>
-														Delete
-													</a>
+                                        <a href="<%= systemConfig.prefixAdmin %>/items/delete/<%= item.id %>" type="button" class="btn btn-danger btn-sm btn-delete">
+										    Delete
+                                        </a>
                                     </td>
                                 </tr>
                                 <% }); %> 
